@@ -55,12 +55,12 @@ AI foundations · AI-powered app architecture · Hands-on AI project work
 
 ## 📊 Progress at a Glance
 
-| # | Learning Area | Status | Progress |
+| # | Learning Area | Status |
 |:-:|---|:-:|---|
-| 1 | Web Development Foundations | ✅ Completed | `██████████` 100% |
-| 2 | Programming & JavaScript Foundations | ✅ Completed | `██████████` 100% |
-| 3 | Backend & React Development | ✅ Completed | `██████████` 100% |
-| 4 | Introduction to AI-Powered Application Development | 🔄 In Progress | `█░░░░` ~10% |
+| 1 | Web Development Foundations | ✅ Completed |
+| 2 | Programming & JavaScript Foundations | ✅ Completed |
+| 3 | Backend & React Development | ✅ Completed |
+| 4 | Introduction to AI-Powered Application Development | 🔄 In Progress |
 
 📍 **Currently focused on:** working through AI foundations and building my first AI-relevant project.
 
