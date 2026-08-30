@@ -1,4 +1,4 @@
-# 🎬 StreamFlix
+# 🎬 StreamFlix (Netflix clone)
 
 <div align="center">
 
