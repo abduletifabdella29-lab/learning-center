@@ -87,13 +87,13 @@ learning-center/
 
 > 💬 Every folder has its own README with the full notes, breakdowns, and documentation for that topic — this top-level file is just the map.
 
-### 🎬 Spotlight: Netflix Clone
+### 🎬 Spotlight: Netflix Clone (streamflix)
 
 A small educational front-end project:
 
 - 🎯 Built purely for learning purposes
 - 📦 12 commits tracking development progress on GitHub
-- 🌐 Deployed live via **Vercel**
+- 🌐 Deployed live via **Netlify**
 
 *Full write-up lives inside its own project folder.*
 
