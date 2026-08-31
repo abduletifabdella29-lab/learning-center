@@ -45,7 +45,7 @@ Git · Node.js · Express.js · MySQL · React · Async JS · Hooks · APIs · R
 </td><td>✅</td></tr>
 <tr><td>
 
-**4️⃣ Introduction to AI-Powered Application Development** *(current)*
+**4️⃣ AI-Powered Application Development** *(current)*
 AI foundations · AI-powered app architecture · Hands-on AI project work
 
 </td><td>🔄</td></tr>
@@ -60,26 +60,9 @@ AI foundations · AI-powered app architecture · Hands-on AI project work
 | 1 | Web Development Foundations | ✅ Completed |
 | 2 | Programming & JavaScript Foundations | ✅ Completed |
 | 3 | Backend & React Development | ✅ Completed |
-| 4 | Introduction to AI-Powered Application Development | 🔄 In Progress |
+| 4 | AI-Powered Application Development | 🔄 In Progress |
 
 📍 **Currently focused on:** working through AI foundations and building my first AI-relevant project.
----
-
-## 🧩 Inside "Introduction to AI-Powered Application Development"
-
-<details open>
-<summary><b>🤖 Click to expand current module breakdown</b></summary>
-
-<br>
-
-| Module | Topic |
-|---|---|
-| 🎬 | Project — Netflix Clone |
-| 🧠 | AI Foundations, History & Terminologies |
-| 🚀 | The Rise of AI-Powered Applications — From Traditional Logic to AI-Powered Apps |
-
-</details>
-
 ---
 
 ## 🗂️ Repository Map
