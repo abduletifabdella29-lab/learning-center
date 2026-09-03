@@ -4,11 +4,14 @@ import express from 'express'
 import db from './db/db.config.js'
 
 import mainRouter from './src/api/main.routes.js';
+import { errorHandler } from './src/middleware/error-handler.js';
 
 const app = express();
-
+app.use(express.json());
 app.use('/api', mainRouter);
 
+// final middleware for error handling
+app.use(errorHandler);
 
 async function startServer() {
     try {
