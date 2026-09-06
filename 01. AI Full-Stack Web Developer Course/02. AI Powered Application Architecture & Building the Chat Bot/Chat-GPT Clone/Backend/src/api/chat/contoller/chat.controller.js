@@ -1,9 +1,13 @@
-import {createConvesatioService} from '../service/chat.service.js'
+import { createConvesatioService } from "../service/chat.service.js";
 
-export async function createConvesationController(req,res) {
+export async function createConversationController(req, res) {
+}
+
+
+export async function createConvesationController(req, res) {
 
     try {
-        const {question} = req.body;
+        const { question } = req.body;
 
         const result = await createConvesatioService(question);
 
@@ -17,7 +21,7 @@ export async function createConvesationController(req,res) {
     }
 }
 
-export async function getConvesationController(req,res) {
+export async function getConvesationController(req, res) {
     try {
         res.send('get conversation api')
     } catch (error) {

@@ -1,15 +1,37 @@
 import db from '../../../../db/db.config.js';
+import { GoogleGenAI } from "@google/genai";
+
+const GEMINI_MODEL = "gemini-3.5-flash-lite";
+
+const geminiClient = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const getRecentConversationRows = async (limit = 5) => {
     const [rows] = await db.execute(
-            `SELECT id, role, content, created_at
-            FROM conversations
-            ORDER BY id DESC
-            LIMIT ?`,
-            [limit]
+        `SELECT id, role, content, created_at
+        FROM conversations
+        ORDER BY id DESC
+        LIMIT ?`,
+        [limit]
     );
 
     return rows.reverse();
+};
+
+const generateAssistantAnswer = async ({ historyRows, question }) => {
+    // Format history for Gemini chats
+    const formattedHistory = historyRows.map(row => ({
+        role: row.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: row.content }]
+    }));
+
+    const chat = geminiClient.chats.create({
+        model: GEMINI_MODEL,
+        history: formattedHistory,
+    });
+
+    const result = await chat.sendMessage({ message: question });
+    console.log(result);
+    return result.text;
 };
 
 export async function createConvesatioService(question) {
@@ -25,13 +47,15 @@ export async function createConvesatioService(question) {
         const historyRows = await getRecentConversationRows(5);
 
         // insert new conversation
-        const [result] = await db.execute(
+        await db.execute(
             `INSERT INTO conversations (content, role) VALUES (?, "user")`,
             [question],
         );
 
+        const assistantAnswer = await generateAssistantAnswer({ historyRows, question });
+
         return {
-            historyRows,
+            assistantAnswer,
         };
     } catch (error) {
         throw error;
