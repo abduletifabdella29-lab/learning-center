@@ -9,7 +9,7 @@ export async function createConvesationController(req, res) {
     try {
         const { question } = req.body;
 
-        const result = await createConvesatioService(question);
+        const result = await createConvesationService(question);
 
         res.status(201).json({
             success: true,
