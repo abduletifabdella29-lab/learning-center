@@ -1,4 +1,5 @@
-import db from '../../../../db/db.config.js';
+import { text } from "express";
+import db from "../../../../db/db.config.js";
 import { GoogleGenAI } from "@google/genai";
 
 const GEMINI_MODEL = "gemini-3.5-flash-lite";
@@ -11,7 +12,7 @@ const getRecentConversationRows = async (limit = 5) => {
         FROM conversations
         ORDER BY id DESC
         LIMIT ?`,
-        [limit]
+        [limit],
     );
 
     return rows.reverse();
@@ -19,9 +20,9 @@ const getRecentConversationRows = async (limit = 5) => {
 
 const generateAssistantAnswer = async ({ historyRows, question }) => {
     // Format history for Gemini chats
-    const formattedHistory = historyRows.map(row => ({
-        role: row.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: row.content }]
+    const formattedHistory = historyRows.map((row) => ({
+        role: row.role === "assistant" ? "model" : "user",
+        parts: [{ text: row.content }],
     }));
 
     const chat = geminiClient.chats.create({
@@ -30,7 +31,7 @@ const generateAssistantAnswer = async ({ historyRows, question }) => {
     });
 
     const result = await chat.sendMessage({ message: question });
-    return { 
+    return {
         text: result.text,
         totalTokens: result.usageMetadata.totalTokenCount,
     };
@@ -40,7 +41,7 @@ export async function createConvesationService(question) {
     try {
         // validation
         if (!question || !question.trim()) {
-            const error = new Error('Question is required');
+            const error = new Error("Question is required");
             error.status = 400;
             throw error;
         }
@@ -54,10 +55,18 @@ export async function createConvesationService(question) {
             [question],
         );
 
-        const assistantAnswer = await generateAssistantAnswer({ historyRows, question });
+        const assistantAnswer = await generateAssistantAnswer({
+            historyRows,
+            question,
+        });
+
+        const createAssistantMessageResult = await db.execute(
+            "INSERT INTO conversations (role, content, token_count) VALUES (?, ?, ?)",
+            ["assistant", assistantAnswer.text, assistantAnswer.totalTokens],
+        );
 
         return {
-            assistantAnswer,
+            assistantAnswer: assistantAnswer.text,
         };
     } catch (error) {
         throw error;
