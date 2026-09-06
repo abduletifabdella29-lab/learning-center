@@ -1,4 +1,4 @@
-import { createConvesatioService } from "../service/chat.service.js";
+import { createConvesationService } from "../service/chat.service.js";
 
 export async function createConversationController(req, res) {
 }

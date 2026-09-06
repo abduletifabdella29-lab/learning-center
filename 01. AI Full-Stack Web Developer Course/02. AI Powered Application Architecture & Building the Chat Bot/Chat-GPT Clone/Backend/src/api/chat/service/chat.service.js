@@ -34,7 +34,7 @@ const generateAssistantAnswer = async ({ historyRows, question }) => {
     return result.text;
 };
 
-export async function createConvesatioService(question) {
+export async function createConvesationService(question) {
     try {
         // validation
         if (!question || !question.trim()) {
