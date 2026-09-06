@@ -30,8 +30,10 @@ const generateAssistantAnswer = async ({ historyRows, question }) => {
     });
 
     const result = await chat.sendMessage({ message: question });
-    console.log(result);
-    return result.text;
+    return { 
+        text: result.text,
+        totalTokens: result.usageMetadata.totalTokenCount,
+    };
 };
 
 export async function createConvesationService(question) {
