@@ -21,17 +21,18 @@ export async function createConvesatioService(question) {
             throw error;
         }
 
-        // save to DB
-        await db.execute(
-            'INSERT INTO conversations (role, content) VALUES (?, ?)',
-            ['user', question]
+        // get recent conversations
+        const historyRows = await getRecentConversationRows(5);
+
+        // insert new conversation
+        const [result] = await db.execute(
+            `INSERT INTO conversations (content, role) VALUES (?, "user")`,
+            [question],
         );
 
-        // get recent conversations
-        const rows = await getRecentConversationRows(5);
-
-        return rows;
-
+        return {
+            historyRows,
+        };
     } catch (error) {
         throw error;
     }

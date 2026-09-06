@@ -6,6 +6,7 @@ export async function createConvesationController(req,res) {
         const {question} = req.body;
 
         const result = await createConvesatioService(question);
+
         res.status(201).json({
             success: true,
             message: 'Conversation posted successfully.',
