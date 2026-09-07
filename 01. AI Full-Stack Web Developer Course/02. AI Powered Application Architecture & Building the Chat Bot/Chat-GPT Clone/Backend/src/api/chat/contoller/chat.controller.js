@@ -1,8 +1,8 @@
-import { createConvesationService } from "../service/chat.service.js";
+import { GenerateContentResponse } from "@google/genai";
+import { createConvesationService, getRecentConversationRows } from "../service/chat.service.js";
 
 export async function createConversationController(req, res) {
 }
-
 
 export async function createConvesationController(req, res) {
 
@@ -23,7 +23,12 @@ export async function createConvesationController(req, res) {
 
 export async function getConvesationController(req, res) {
     try {
-        res.send('get conversation api')
+    const result = await getRecentConversationRows(100);
+    res.status(200).json({
+        success: true,
+        message: 'conversation fetched successfully',
+        data: result,
+    });
     } catch (error) {
         throw error;
     }
