@@ -27,6 +27,9 @@ const generateAssistantAnswer = async ({ historyRows, question }) => {
 
     const chat = geminiClient.chats.create({
         model: GEMINI_MODEL,
+        config: {
+            maxOutputTokens: 1024,
+        },
         history: formattedHistory,
     });
 
@@ -36,6 +39,23 @@ const generateAssistantAnswer = async ({ historyRows, question }) => {
         totalTokens: result.usageMetadata.totalTokenCount,
     };
 };
+
+
+const getMessageById = async messageId => {
+    const [rows] = await db.execute(
+        'SELECT id, role, content, token_count, created_at FROM conversations WHERE id = ? LIMIT 1',
+        [messageId],
+    );
+    if (!rows[0]) return null;
+    return {
+        id: rows[0].id,
+        role: rows[0].role,
+        content: rows[0].content,
+        tokenCount: Number(rows[0].token_count || 0),
+        createdAt: rows[0].created_at,
+    };
+};
+
 
 export async function createConvesationService(question) {
     try {
@@ -50,7 +70,7 @@ export async function createConvesationService(question) {
         const historyRows = await getRecentConversationRows(5);
 
         // insert new conversation
-        await db.execute(
+        const [userInsertResult] = await db.execute(
             `INSERT INTO conversations (content, role) VALUES (?, "user")`,
             [question],
         );
@@ -60,13 +80,22 @@ export async function createConvesationService(question) {
             question,
         });
 
-        const createAssistantMessageResult = await db.execute(
+        const [assistantInsertResult] = await db.execute(
             "INSERT INTO conversations (role, content, token_count) VALUES (?, ?, ?)",
             ["assistant", assistantAnswer.text, assistantAnswer.totalTokens],
         );
 
+        const userConversation = await getMessageById(
+            userInsertResult.insertId
+        );
+
+        const assistantConversation = await getMessageById(
+            assistantInsertResult.insertId
+        );
+
         return {
-            assistantAnswer: assistantAnswer.text,
+            userConversation,
+            assistantConversation,
         };
     } catch (error) {
         throw error;
