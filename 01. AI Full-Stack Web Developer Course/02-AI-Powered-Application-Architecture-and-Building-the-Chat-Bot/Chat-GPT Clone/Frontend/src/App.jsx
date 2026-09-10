@@ -4,6 +4,7 @@ import axios from 'axios';
 import Sidebar from './Componentes/Sidebar/Sidebar.jsx';
 import ChatHeader from './Componentes/ChatHeader/ChatHeader.jsx';
 import MessageList from './Componentes/MessageList/MessageList.jsx';
+import ChatMessage from './Componentes/ChatMessage/ChatMessage.jsx';
 
 import './App.css';
 
@@ -45,7 +46,7 @@ function App() {
           messagesEndRef={messagesEndRef} 
         />
 
-        {/* <ChatMessage /> */}
+        <ChatMessage />
 
       </main>
     </div>
