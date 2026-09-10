@@ -4,7 +4,6 @@ import axios from 'axios';
 import Sidebar from './Componentes/Sidebar/Sidebar.jsx';
 import ChatHeader from './Componentes/ChatHeader/ChatHeader.jsx';
 import MessageList from './Componentes/MessageList/MessageList.jsx';
-import ChatMessage from './Componentes/ChatMessage/ChatMessage.jsx';
 
 import './App.css';
 
@@ -20,7 +19,6 @@ function App() {
         'http://localhost:3777/api/chat/conversations'
       );
 
-      console.log(data);
       setConversations(Array.isArray(data) ? data : data.data || []);
     } catch (error) {
       console.log(error.message);
@@ -45,9 +43,6 @@ function App() {
           isLoading={isLoading} 
           messagesEndRef={messagesEndRef} 
         />
-
-        <ChatMessage />
-
       </main>
     </div>
   );
