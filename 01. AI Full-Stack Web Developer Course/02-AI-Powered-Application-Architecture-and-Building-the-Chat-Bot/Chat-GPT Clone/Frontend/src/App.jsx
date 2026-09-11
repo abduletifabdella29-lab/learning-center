@@ -4,6 +4,7 @@ import axios from 'axios';
 import Sidebar from './Componentes/Sidebar/Sidebar.jsx';
 import ChatHeader from './Componentes/ChatHeader/ChatHeader.jsx';
 import MessageList from './Componentes/MessageList/MessageList.jsx';
+import ChatInput from './Componentes/ChatInput/ChatInput.jsx'
 
 import './App.css';
 
@@ -43,6 +44,8 @@ function App() {
           isLoading={isLoading} 
           messagesEndRef={messagesEndRef} 
         />
+
+        <ChatInput />
       </main>
     </div>
   );
