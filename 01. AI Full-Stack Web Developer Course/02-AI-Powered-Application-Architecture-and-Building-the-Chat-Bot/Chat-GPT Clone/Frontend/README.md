@@ -90,7 +90,7 @@ App.jsx
 
 ### Prerequisites
 - Node.js `>=18`
-- npm / yarn / pnpm
+- npm 
 
 ### Installation
 
@@ -158,6 +158,6 @@ Distributed under the **MIT License**. See `LICENSE` for details.
 
 <div align="center">
 
-Made with ⚛️ React and ☕ by the Chat-GPT-Clone team
+Made with ⚛️ React ☕ the Chat-GPT-Clone 
 
 </div>
