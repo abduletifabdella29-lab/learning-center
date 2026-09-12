@@ -23,6 +23,7 @@
 
 .avatar.user {
     background-color: #3b82f6;
+    margin-top: 10px;
 }
 
 .avatar.assistant {
