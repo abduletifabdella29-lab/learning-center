@@ -92,7 +92,7 @@ Request
 
 ---
 
-## 🧠 AI Persona — Abduletif
+## 🧠 AI Personal — Abduletif
 
 The Gemini integration is configured with a strict `systemInstruction`:
 
