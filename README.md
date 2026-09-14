@@ -6,7 +6,7 @@
 
 ![Status](https://img.shields.io/badge/status-actively%20learning-success?style=for-the-badge)
 ![Focus](https://img.shields.io/badge/current%20focus-AI--Powered%20Apps-8A2BE2?style=for-the-badge)
-![Type](https://img.shields.io/badge/type-personal%20learning%20repo-blue?style=for-the-badge)
+![Type](https://img.shields.io/badge/type-community%20learning%20repo-blue?style=for-the-badge)
 
 </div>
 
