@@ -18,7 +18,7 @@
 
 Every folder here holds real work: notes in my own words, practice exercises, experiments, and projects built as I go. Courses will come and go, but this repo is built to **outlast** any one of them — a running record of how I'm growing as a developer.
 
-> 🧭 Right now, the biggest thread running through this repo is the **AI Full-Stack Web Developer Course** — but new skills, tools, and ideas will keep finding a home here.
+> 🧭 Right now, the biggest thread running through this repo is the **AI Full-Stack Web Developer Course** — building real AI applications from scratch (Frontend, Backend, and LLM Integrations).
 
 ---
 
@@ -46,7 +46,7 @@ Git · Node.js · Express.js · MySQL · React · Async JS · Hooks · APIs · R
 <tr><td>
 
 **4️⃣ AI-Powered Application Development** *(current)*
-AI foundations · AI-powered app architecture · Hands-on AI project work
+AI foundations · AI app architecture · Prompt Engineering · Full-stack AI builds
 
 </td><td>🔄</td></tr>
 </table>
@@ -62,40 +62,35 @@ AI foundations · AI-powered app architecture · Hands-on AI project work
 | 3 | Backend & React Development | ✅ Completed |
 | 4 | AI-Powered Application Development | 🔄 In Progress |
 
-📍 **Currently focused on:** working through AI foundations and building my first AI-relevant project.
+📍 **Currently focused on:** Mastering LLM application architectures, prompt engineering strategies, and deploying full-stack AI clones.
+
 ---
 
-## 🗂️ Repository Map
+## 🎬 Featured Spotlights
 
-```
-learning-center/
-│
-├── 📁 AI Full-Stack Web Developer Course/
-│   │
-│   ├── 📁 Web Development Foundations/
-│   ├── 📁 Programming & JavaScript Foundations/
-│   ├── 📁 Backend & React Development/
-│   │
-│   └── 📁 Introduction to AI-Powered Application Development/
-│       │
-│       ├── 🎬 Project - Netflix Clone/
-│       ├── 🧠 AI Foundations, History & Terminologies/
-│       └── 🚀 The Rise of AI-Powered Applications - From Traditional Logic to AI-Powered Apps/
-│
-└── 📄 README.md   ← you are here
-```
+### 🤖 1. Full-Stack ChatGPT Clone (`01.Chat-GPT-Clone`)
+A full-stack AI chat application built with modern web technologies:
+- **Frontend:** React UI with responsive design and streaming-like interaction.
+- **Backend:** Node.js & Express (Port 3777) acting as an orchestrator for API communication.
+- **AI Integration:** Google Gemini API powering the intelligence layer.
+- **Database:** MySQL storing conversation histories to maintain memory across sessions.
 
-> 💬 Every folder has its own README with the full notes, breakdowns, and documentation for that topic — this top-level file is just the map.
+### 🎬 2. Netflix Clone (Streamflix)
+A responsive front-end educational project:
+- 🎯 Built for learning UI components and API integration.
+- 🌐 Deployed live via **Netlify**.
 
-### 🎬 Spotlight: Netflix Clone (streamflix)
+---
 
-A small educational front-end project:
+## 🧠 Core AI Architecture Breakdown (Restaurant Analogy)
+> *A quick glance at how my AI apps are structured based on my technical notes[cite: 1]:*
 
-- 🎯 Built purely for learning purposes
-- 📦 12 commits tracking development progress on GitHub
-- 🌐 Deployed live via **Netlify**
-
-*Full write-up lives inside its own project folder.*
+| Layer | Role | Description |
+| :--- | :--- | :--- |
+| **🧑‍🍳 LLM API (Inference)** | The Chef | The raw intelligence (Gemini/GPT); processes prompts but never sees users directly[cite: 1]. |
+| **⚙️ Backend** | The Waiter | Node.js/Express orchestrator handling safety, guardrails, and prompt formatting[cite: 1]. |
+| **🖥️ Frontend** | The Menu & Table | React interface where users type messages and view streamed responses[cite: 1]. |
+| **🗄️ Database** | The Logbook | MySQL storing chat history so the model "remembers" past interactions[cite: 1]. |
 
 ---
 
@@ -108,9 +103,6 @@ A small educational front-end project:
 | 🧪 | **Experiments** | Things I'm testing or exploring |
 | 🔨 | **Projects** | Larger builds applying what I've learned |
 | 📚 | **Course Work** | Structured material from courses I'm taking |
-| 📈 | **Progress Logs** | Where I currently stand in my learning |
-
-> ⚠️ This is a **working repository**, not a polished final product — it's meant to show real, ongoing learning.
 
 ---
 
@@ -121,9 +113,8 @@ A small educational front-end project:
 <td valign="top">
 
 **🎨 Frontend**
-- HTML
-- CSS
-- Bootstrap
+- HTML / CSS
+- Bootstrap / Tailwind
 - JavaScript
 - React
 
@@ -137,40 +128,21 @@ A small educational front-end project:
 </td>
 <td valign="top">
 
-**🗄️ Database**
+**🗄️ Database & AI**
 - MySQL
+- Google Gemini API
 
 </td>
 <td valign="top">
 
 **🧰 Tools**
-- Git
-- GitHub
+- Git / GitHub
 - VS Code
-
-</td>
-<td valign="top">
-
-**🤖 Current Area**
-- AI-Powered App Dev
+- Render (Hosting)
 
 </td>
 </tr>
 </table>
-
----
-
-## 🧠 Learning Philosophy
-
-```
-✔ Practice over passive tutorials
-✔ Understand the "why," not just the "how"
-✔ Show up consistently
-✔ Document what I learn as I learn it
-✔ Treat mistakes as part of the process
-```
-
-I learn best by **building**, not just watching — so almost everything in this repo exists because I built it, broke it, or explained it to myself first.
 
 ---
 
