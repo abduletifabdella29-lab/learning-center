@@ -18,8 +18,6 @@
 
 Every folder here holds real work: notes in my own words, practice exercises, experiments, and projects built as I go. Courses will come and go, but this repo is built to **outlast** any one of them — a running record of how I'm growing as a developer.
 
-> 🧭 Right now, the biggest thread running through this repo is the **AI Full-Stack Web Developer Course** — building real AI applications from scratch (Frontend, Backend, and LLM Integrations).
-
 ---
 
 ## 🛤️ The Journey So Far
