@@ -66,17 +66,17 @@ AI foundations · AI app architecture · Prompt Engineering · Full-stack AI bui
 
 ## 🎬 Featured Spotlights
 
-### 🤖 1. Full-Stack ChatGPT Clone (`01.Chat-GPT-Clone`)
+### 🎬 1. Netflix Clone (Streamflix)
+A responsive front-end educational project:
+- 🎯 Built for learning UI components and API integration.
+- 🌐 Deployed live via **Netlify**.
+
+### 🤖 2. Full-Stack ChatGPT Clone (`Chat-GPT-Clone`)
 A full-stack AI chat application built with modern web technologies:
 - **Frontend:** React UI with responsive design and streaming-like interaction.
 - **Backend:** Node.js & Express (Port 3777) acting as an orchestrator for API communication.
 - **AI Integration:** Google Gemini API powering the intelligence layer.
 - **Database:** MySQL storing conversation histories to maintain memory across sessions.
-
-### 🎬 2. Netflix Clone (Streamflix)
-A responsive front-end educational project:
-- 🎯 Built for learning UI components and API integration.
-- 🌐 Deployed live via **Netlify**.
 
 ---
 
