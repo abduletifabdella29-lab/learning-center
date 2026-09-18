@@ -176,6 +176,62 @@ const candidates = [
 console.log(findMostSimilar(query, candidates)) // expect index 1 to win — it's closest in direction to [1, 9]
 ```
 
+## Semantic Search Pipeline (Real-World Flow)
+
+The exercises above are the building blocks of a real semantic search endpoint. Here's how a typical `GET /api/questions/search` request flows end to end, and how each step maps back to the code in this repo:
+
+```
+Client Request GET /api/questions/search
+            │
+            ▼
+   Validate Query Params
+            │
+            ▼
+ Call Gemini API for Query Embedding
+            │
+            ▼
+ Fetch All 'ready' Vectors from DB
+            │
+            ▼
+ Compute Cosine Similarity for Each
+            │
+            ▼
+  Filter out Scores < Threshold
+            │
+            ▼
+   Sort Descending & Take Top K
+            │
+            ▼
+ Fetch Question Details for Top K
+            │
+            ▼
+        Return 200 OK
+```
+
+| Pipeline Step | What it does | Maps to |
+|---|---|---|
+| **Client Request** | User submits a search query string | Entry point of the API |
+| **Validate Query Params** | Reject empty/missing queries before doing expensive work | Basic input validation (not covered in this repo) |
+| **Call Gemini API for Query Embedding** | Convert the user's search text into a vector | `01_Generate-Embeddings.js` — same `embedContent()` call, run on live user input instead of a fixed test string |
+| **Fetch All 'ready' Vectors from DB** | Load pre-computed embeddings for every stored question | The `candidates` array in Exercise 3, but persisted in a real database instead of hardcoded |
+| **Compute Cosine Similarity for Each** | Score the query vector against every candidate vector | `cosineSimilarity02()` from `02_Math-Similarity.js`, looped — this **is** `findMostSimilar()` from Exercise 3 |
+| **Filter out Scores < Threshold** | Drop matches that aren't similar enough (e.g. score < 0.75) | Not yet built — see "Next Steps" below |
+| **Sort Descending & Take Top K** | Keep only the best K matches, ranked highest to lowest | Extension of `findMostSimilar()` — instead of tracking one best match, track and sort the top K |
+| **Fetch Question Details for Top K** | Go back to the DB to pull full question data for the winning vectors | Not yet built — see "Next Steps" below |
+| **Return 200 OK** | Send the ranked results back to the client | API response layer (not covered in this repo) |
+
+### Next Steps
+
+To turn the practice exercises into this full pipeline, the remaining pieces to build are:
+
+1. **`findTopK(queryVec, candidateVecs, k, threshold)`** — an extension of `findMostSimilar()` that:
+   - Scores every candidate with `cosineSimilarity02()`
+   - Filters out anything below `threshold`
+   - Sorts the remaining scores descending
+   - Returns only the top `k` results
+2. **A mock in-memory "database"** — an array of `{ id, question, vector }` objects to stand in for the real DB fetch, so the whole pipeline can run without a real backend.
+3. **Wiring it together** — a small script that: embeds a query with `01_Generate-Embeddings.js`, runs it through `findTopK()`, and logs the ranked results — a working, end-to-end mock of the diagram above.
+
 ## Key Takeaway
 
 Embeddings turn text into vectors that capture semantic meaning, and cosine similarity lets you measure how "close" two pieces of text are in meaning — the foundation of semantic search, recommendation systems, and RAG pipelines.
