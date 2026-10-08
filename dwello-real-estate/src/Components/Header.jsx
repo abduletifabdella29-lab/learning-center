@@ -21,22 +21,22 @@ function Header() {
                 <nav className='flex items-center gap-1 lg:gap-3'>
                     <a
                         href="#"
-                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-300'>
+                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-400'>
                         Home
                     </a>
                     <a
                         href="#"
-                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-300'>
+                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-400'>
                         Service
                     </a>
                     <a
                         href="#"
-                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-300'>
+                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-400'>
                         Agents
                     </a>
                     <a
                         href="#"
-                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-300'>
+                        className='font-bold text-[16px] lg:text-[18px] px-3 lg:px-5 py-2.5 rounded-lg hover:bg-[#3B2418] hover:text-white transition-all duration-400'>
                         Contact
                     </a>
                 </nav>
