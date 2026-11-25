@@ -7,7 +7,7 @@
 ![Topic](https://img.shields.io/badge/Topic-RAG-blueviolet?style=for-the-badge)
 ![Pipeline](https://img.shields.io/badge/Pipeline-6%20Steps-success?style=for-the-badge)
 ![Storage](https://img.shields.io/badge/Learning%20DB-MySQL%20%2B%20JSON-blue?style=for-the-badge)
-![Use Case](https://img.shields.io/badge/Use%20Case-Evangadi%20Chatbot-orange?style=for-the-badge)
+![Use Case](https://img.shields.io/badge/Use%20Case-Company%20Chatbot-orange?style=for-the-badge)
 
 </div>
 
@@ -40,7 +40,7 @@ Imagine hiring a brilliant Computer Science professor who understands JavaScript
 
 - ❌ no internet connection
 - ❌ no updated class schedule
-- ❌ no Evangadi course calendar
+- ❌ no course calendar
 - ❌ no pricing sheet
 - ❌ no student handbook or internal notes
 
@@ -52,7 +52,7 @@ The professor is still intelligent — but **isolated**. They can answer general
 
 | # | Limitation | What It Means | Example |
 |---|-----------|---------------|---------|
-| 1 | 🕰️ **Knowledge Cutoff** | The model is frozen at its training date and doesn't learn new schedules, prices, or policies. | *"When does the next Evangadi batch start?"* — the schedule may have been created after training. |
+| 1 | 🕰️ **Knowledge Cutoff** | The model is frozen at its training date and doesn't learn new schedules, prices, or policies. | *"When does the next batch start?"* — the schedule may have been created after training. |
 | 2 | 🔐 **Private Data** | Company info (prices, schedules, policies) isn't in public training data. | *"How much is the Full Stack class?"* — the model guesses a generic price. |
 | 3 | 🎭 **Hallucination** | The model gives confident answers that aren't supported by facts. | A wrong price, start date, or policy creates confusion and support problems. |
 
@@ -61,7 +61,7 @@ The professor is still intelligent — but **isolated**. They can answer general
 | Question | Bad Answer | Why It Is Bad |
 |----------|-----------|---------------|
 | When does Phase 3 start? | *"It starts next Monday."* | The model guessed instead of checking the official schedule. |
-| How much is the class? | *"Around $5,000."* | Uses general knowledge, not Evangadi data. |
+| How much is the class? | *"Around $5,000."* | Uses general knowledge, not company data. |
 | Can I join late? | *"Yes, always."* | The real rule may depend on the current cohort policy. |
 
 ### 🛠️ The Old Solution: Fine-Tuning
@@ -92,7 +92,7 @@ If the schedule changes every month, retraining every month is **slow, costly, a
 Instead of changing the professor's brain, we hand them the correct page at the moment the question is asked:
 
 1. 🙋 The student asks: *"When does the Phase 3 React class start?"*
-2. 🔍 The system searches the Evangadi course calendar.
+2. 🔍 The system searches the course calendar.
 3. 📄 The system retrieves the paragraph containing the Phase 3 start date.
 4. 📨 The system sends **both** the question and the retrieved paragraph to the LLM.
 5. 💬 The LLM answers based on that paragraph.
@@ -127,7 +127,7 @@ Placing the retrieved text directly inside the prompt that goes to the LLM. This
 
 ```text
 System Prompt:
-You are a helpful Evangadi assistant.
+You are a helpful assistant.
 Use only the context below to answer the student.
 
 Context:
@@ -176,7 +176,7 @@ Ingestion -> Chunking -> Embedding -> Storage -> Retrieval -> Generation
 
 Bring information into the system from text files, PDFs, Word docs, website pages, internal manuals, FAQs, or database records.
 
-- 📄 **Example file:** `evangadi-info.txt`
+- 📄 **Example file:** `company-info.txt`
 - 🎯 **Goal:** Read the text so the application can process it.
 - ✅ **Good practice:** Save metadata — file name, section title, date, source type. It helps show where an answer came from and filter by document type.
 
@@ -246,7 +246,7 @@ The question is converted into a vector, compared with every stored chunk vector
 Put the retrieved chunks into a prompt, add the user question, and ask the LLM to answer **using only the provided context**.
 
 ```text
-You are a helpful Evangadi Professor.
+You are a helpful Professor.
 Use ONLY the context below.
 If the answer is not in the context, say "I do not know based on the provided information."
 
@@ -298,7 +298,7 @@ Not a random guess — it's **grounded in the retrieved context**.
 
 **🙋 Student:** *"Who is the CEO of Apple?"*
 
-**Retrieved context:** Only Evangadi course information. No Apple CEO information appears.
+**Retrieved context:** Only course information. No Apple CEO information appears.
 
 **✅ Correct answer:**
 
